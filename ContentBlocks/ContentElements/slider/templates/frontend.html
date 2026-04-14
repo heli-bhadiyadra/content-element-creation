@@ -1,0 +1,82 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<style>
+.carousel-item img{
+    height:450px;
+    object-fit:cover;
+}
+</style>
+
+<div class="container my-5">
+
+
+    <h2 class="mb-4">{data.header}</h2>
+
+    <div id="slider-{data.uid}" class="carousel slide" data-bs-ride="carousel">
+ 
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <f:for each="{data.t3_slider_slides}" as="slide" iteration="i">
+                <button type="button"
+                        data-bs-target="#slider-{data.uid}"
+                        data-bs-slide-to="{i.index}"
+                        class="{f:if(condition:i.isFirst, then:'active')}">
+                </button>
+            </f:for>
+        </div>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+            <f:for each="{data.t3_slider_slides}" as="slide" iteration="i">
+
+                <div class="carousel-item {f:if(condition:i.isFirst, then:'active')}">
+
+                    <f:image 
+                        image="{slide.image.0}" 
+                        width="1600" 
+                        height="500" 
+                        class="d-block w-100"
+                        alt="{slide.caption}" />
+
+                    <f:if condition="{slide.caption}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>{slide.caption}</p>
+                            
+
+                        <p>
+                            <f:link.typolink parameter="{slide.link}" class="btn btn-light">
+                                Go to Page
+                            </f:link.typolink>
+                        </p>
+                    
+                        </div>
+                    </f:if>   
+
+                </div>
+
+            </f:for>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#slider-{data.uid}"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#slider-{data.uid}"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+
+</div>
+
+</html>

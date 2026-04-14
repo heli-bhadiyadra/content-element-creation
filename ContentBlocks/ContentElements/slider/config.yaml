@@ -1,0 +1,25 @@
+name: t3/slider
+typeName: t3_slider
+group: default
+prefixFields: true
+prefixType: full
+fields:
+  -
+    identifier: header
+    useExistingField: true
+  - 
+    identifier: slides
+    type: Collection
+    label: Slides
+
+    fields:
+      - identifier: image
+        type: File
+        label: Image
+        allowed: common-image-types
+
+      - identifier: caption
+        type: Text
+
+      - identifier: link
+        type: Link

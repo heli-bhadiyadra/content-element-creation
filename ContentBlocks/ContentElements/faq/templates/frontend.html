@@ -1,0 +1,51 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <h2 class="mb-4">{data.header}</h2>
+
+            <div class="accordion" id="faqAccordion">
+
+                <f:for each="{data.t3_faq_tabs_item}" as="item" iteration="i">
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header" id="heading{i.index}">
+                            <button class="accordion-button {f:if(condition: i.isFirst, then:'', else:'collapsed')}"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse{i.index}">
+
+                                {item.question}
+                            </button>
+                        </h2>
+
+                        <div id="collapse{i.index}"
+                             class="accordion-collapse collapse {f:if(condition: i.isFirst, then:'show')}"
+                             data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+                                <f:format.raw>{item.answer}</f:format.raw>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </f:for>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</html>

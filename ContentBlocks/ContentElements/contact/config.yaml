@@ -1,0 +1,24 @@
+name: t3/contact
+typeName: t3_contact
+group: default
+prefixFields: true
+prefixType: full
+fields:
+  -
+    identifier: header
+    useExistingField: true
+  - 
+    identifier: phone
+    type: Text
+
+  - 
+    identifier: email
+    type: Email
+
+  - 
+    identifier: address
+    type: Textarea
+
+  - 
+    identifier: map
+    type: Textarea
