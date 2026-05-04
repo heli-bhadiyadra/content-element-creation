@@ -1,0 +1,15 @@
+<f:if condition="{newsItem.data.subtitle}">
+    <h3>{newsItem.data.subtitle}</h3>
+</f:if>
+
+<f:if condition="{newsItem.data.descriptionNews}">
+    <div class="description-news">
+        <f:format.html>{newsItem.data.descriptionNews}</f:format.html>
+    </div>
+</f:if>
+
+<f:if condition="{newsItem.isTopNews}">
+    <f:if condition="{newsItem.data.featureImage}">
+        <f:image image="{newsItem.data.featureImage.0}" width="600" />
+    </f:if>
+</f:if>
